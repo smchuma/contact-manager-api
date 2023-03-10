@@ -4,6 +4,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 4000;
 const ContactRouter = require("./Routes/ContactRoute");
 
+app.use(express.json());
 app.use("/contacts", ContactRouter);
 
 app.listen(PORT, (req, res) => {
