@@ -1,24 +1,24 @@
-//Get all Contact
+//* Get all Contact
 const getContacts = (req, res) => {
   res.json({
     message: "Get all Contacts",
   });
 };
 
-//!getting single contacts
+// @ getting single contacts
 const getSingleContact = (req, res) => {
   res.json({
     message: `Get single contact for ${req.params.id}`,
   });
 };
 
-//!create a contact
+//! create a contact
 const createContact = (req, res) => {
   const { name, age } = req.body;
 
   if (!name || !age) {
     res.status(400);
-    res.json({ message: "Please enter name and age" });
+    throw new Error("All fields are required");
   }
 
   res.send({
@@ -27,14 +27,14 @@ const createContact = (req, res) => {
   });
 };
 
-//!update a contact
+//* update a contact
 const updateContact = (req, res) => {
   res.json({
     message: `update the contact of ${req.params.id}`,
   });
 };
 
-//delete a contact
+//@delete a contact
 const deleteContact = (req, res) => {
   res.json({
     message: `delete the contact of ${req.params.id}`,
